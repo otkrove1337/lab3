@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -17,13 +16,16 @@ module.exports = {
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
-      template: './src/pages/about.html',
-      filename: 'about.html',
+      template: './src/pages/news.html',
+      filename: 'news.html',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: 'src/assets/images', to: 'dist/assets/images' }
-      ],
+    new HtmlWebpackPlugin({
+      template: './src/pages/rozklad.html',
+      filename: 'rozklad.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/photo.html',
+      filename: 'photo.html',
     }),
   ],
   devServer: {
